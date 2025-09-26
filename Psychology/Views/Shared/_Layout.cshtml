@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - سنس کلینینک</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Psychology.styles.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div id="scroll-sentinel" aria-hidden="true"></div>
+    <!-- Header -->
+    <header id="header" class="site-header" role="banner">
+        <div class="header-inner">
+            <!-- Logo (right side in RTL) -->
+            <a id="logo" href="/" class="logo d-flex position-relative" aria-label="کلینیک سنس">
+                <!-- Use your real logo path -->
+                <img class="logo-white" src="~/img/global/logo-white.png" alt="کلینیک سنس" />
+                <img class="logo-black d-none" src="~/img/global/logo-black.png" alt="کلینیک سنس" />
+
+                <img class="logo-text logo-text-white position-absolute" src="~/img/global/text-logo-white.png" alt="کلینیک سنس" />
+                <img class="logo-text logo-text-black position-absolute d-none" src="~/img/global/text-logo-green.png" alt="کلینیک سنس" />
+            </a>
+
+            <!-- Hamburger / Close button (left on mobile) -->
+            <button class="menu-toggle" aria-label="باز و بسته کردن منو"
+                    aria-expanded="false" aria-controls="site-nav">
+                <img class="icon icon-open hamburger-white" src="~/img/global/hamburger-menu-white-50.png" alt="" aria-hidden="true" />
+                <img class="icon icon-close close-white" src="~/img/global/close-white.png" alt="" aria-hidden="true" />
+
+                <img class="icon icon-open hamburger-black d-none" src="~/img/global/hamburger-menu-black-50.png" alt="" aria-hidden="true" />
+                <img class="icon icon-close d-none close-black" src="~/img/global/close-black-50.png" alt="" aria-hidden="true" />
+            </button>
+
+            <!-- One nav used for both desktop (inline) and mobile (drawer) -->
+            <nav id="site-nav" class="site-nav" aria-label="ناوبری اصلی">
+                <ul id="nav-list" class="nav-list">
+                    <li><a asp-controller="" asp-action=""><i class="fa-solid fa-briefcase"></i> کسب‌وکار</a></li>
+                    <li><a href="/"><i class="fa-solid fa-circle-info"></i> درباره ما</a></li>
+                    <li><a href="/"><i class="fa-solid fa-comments"></i> مشاوره</a></li>
+                    <li><a href="/"><i class="fa-regular fa-circle-question"></i> پرسش‌های متداول</a></li>
+                    <li><a href="/"><i class="fa-solid fa-user-doctor"></i> فرصت‌های شغلی برای درمانگران</a></li>
+                    <li><a href="/"><i class="fa-solid fa-phone"></i> تماس با ما</a></li>
+                    <li>
+                        <a class="btn-login">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>ورود</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-start" href="/">
+                            <i class="fa-solid fa-play"></i>
+                            شروع کنید
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Backdrop for mobile drawer -->
+    <div class="nav-backdrop" hidden></div>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="">
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/scroll-animate.js" defer></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

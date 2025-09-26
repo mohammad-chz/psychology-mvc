@@ -1,0 +1,99 @@
+﻿/* full screen section, accounting for the sticky header height */
+.screen-with-header {
+    min-height: calc(100dvh - var(--header-h)); /* mobile-safe viewport */
+}
+
+/* nice centering + spacing for a hero */
+.hero-center {
+    display: grid;
+    place-items: center; /* centers content both axes */
+    padding-block: 32px; /* some breathing room */
+    color: var(--color-white); /* readable on your green bg */
+}
+
+.custom-bg-individual {
+    background: #377648;
+}
+
+.custom-bg-couples {
+    background: #457777;
+}
+
+.custom-bg-teen {
+    background: #a75d00;
+}
+
+.home-items-group {
+    list-style: none; /* remove bullets */
+    padding-left: 0; /* reset default padding */
+    margin: 0; /* remove default margin */
+}
+
+    .home-items-group .img-container {
+        height: 18rem;
+        position: relative;
+    }
+
+.img-container .info-item {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+}
+
+    .img-container .info-item p {
+        color: white;
+    }
+
+
+.img-container a {
+    cursor: pointer;
+}
+
+.home-items-group img {
+    height: 100%;
+    transform: scaleX(-1); /* flip horizontally */
+    border: 1px solid var(--color-primary);
+    border-radius: 1rem;
+    object-fit: cover; /* better fit inside container */
+    transition: all 0.3s ease-in-out;
+}
+
+    .home-items-group img:hover {
+        transform: scaleX(-1) scale(1.05); /* keep flipped, scale slightly */
+        border-color: white; /* green highlight (your brand) */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* soft shadow */
+        cursor: pointer;
+    }
+
+@media (max-width: 575.98px) {
+    .hero-center h1 {
+        font-size: 24px;
+    }
+
+    .home-items-group {
+        padding: 0 1rem;
+    }
+
+        .home-items-group .img-container {
+            aspect-ratio: 16 / 6;
+            height: auto;
+        }
+
+            .home-items-group .img-container p {
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+
+        .home-items-group img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+        }
+
+    .img-container .info-item {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+}

@@ -1,0 +1,49 @@
+	# Build output
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+*.user
+*.suo
+*.cache
+*.ide/
+.vs/
+
+# Packages
+**/packages/
+*.nupkg
+
+# Publish artifacts
+**/publish/
+**/out/
+
+# Logs & temp
+*.log
+*.tlog
+*.tmp
+*.temp
+
+# Rider/VSCode/others
+.idea/
+.vscode/
+*.iml
+
+# Node (if you have any frontend in the solution)
+node_modules/
+dist/
+
+# Secrets / local settings
+**/appsettings.Local.json
+**/appsettings.*.local.json
+.env
+.env.*
+
+# Uploaded files (keep empty folder with .gitkeep if needed)
+wwwroot/uploads/
+wwwroot/media/
+wwwroot/files/
+
+# Image caches / design files (optional)
+*.psd
+*.ai
+*.sketch

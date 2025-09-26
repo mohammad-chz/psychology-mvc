@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "خانه";
+}
+
+<section id="hero" class="custom-bg-green screen-with-header hero-center">
+    <div class="d-flex flex-column align-items-center gap-3 px-3">
+        <h1>شما سزاوار شادی هستید.</h1>
+        <div>دنبال چه نوع درمانی هستید؟</div>
+        @* Desktop *@
+        <ul class="d-flex d-md-flex flex-column flex-lg-row justify-content-between align-items-center gap-3 home-items-group p-0">
+            <li class="img-container">
+                <a asp-controller="test" asp-action="test">
+                    <img class="custom-bg-individual d-none d-sm-block" src="~/img/home/individual_desktop.png" loading="lazy" alt="فردی‌ها" />
+                    <img class="custom-bg-individual d-block d-sm-none" src="~/img/home/individual_mobile.png" loading="lazy" alt="فردی‌ها" />
+                    <div class="info-item d-flex flex-column gap-sm-2">
+                        <p class="h3">فردی</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <p class="m-0">برای خودم</p>
+                            <i class="fa-solid fa-arrow-left text-white"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="img-container">
+                <a asp-controller="test" asp-action="test">
+                    <img class="custom-bg-couples d-none d-sm-block" src="~/img/home/couples_desktop.png" loading="lazy" alt="زوج‌ها" />
+                    <img class="custom-bg-couples d-block d-sm-none" src="~/img/home/couples_mobile.png" loading="lazy" alt="زوج‌ها" />
+                    <div class="info-item d-flex flex-column gap-sm-2">
+                        <p class="h3">زوج‌ها</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <p class="m-0">برای من و شریکم</p>
+                            <i class="fa-solid fa-arrow-left text-white"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="img-container">
+                <a asp-controller="test" asp-action="test" class="">
+                    <img class="custom-bg-teen d-none d-sm-block" src="~/img/home/teen_desktop.png" loading="lazy" alt="مشاوره نوجوانان" />
+                    <img class="custom-bg-teen d-block d-sm-none" src="~/img/home/teen_mobile.png" loading="lazy" alt="مشاوره نوجوانان" />
+                    <div class="info-item d-flex flex-column gap-sm-2">
+                        <p class="h3">نوجوان</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <p class="m-0">برای فرزندم</p>
+                            <i class="fa-solid fa-arrow-left text-white"></i>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="reveal" data-reveal="fade-right" data-delay="100">
+    <h2>Features</h2>
+    <p>Modern design, fast performance, and responsive layout.</p>
+</section>
+
+<section class="reveal" data-reveal="zoom-in" data-delay="200">
+    <h2>Features</h2>
+    <p>Modern design, fast performance, and responsive layout.</p>
+</section>
+
+<section class="reveal" data-reveal="fade-up">
+    <h2>Features</h2>
+    <p>Modern design, fast performance, and responsive layout.</p>
+</section>
+
+<section class="reveal" data-reveal="fade-up">
+    <h2>Features</h2>
+    <p>Modern design, fast performance, and responsive layout.</p>
+</section>
+
+@section Styles {
+    <link href="~/css/home.css" rel="stylesheet" />
+}
