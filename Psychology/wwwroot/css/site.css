@@ -3,6 +3,8 @@
     --shadow-1: 0 2px 14px rgba(0,0,0,.06);
     --color-white: #FFFFFF;
     --color-primary: #325343;
+    --color-secondary: #397a4a;
+    --color-second-main: #fffcf6;
     --nav-hover-bg: rgba(255, 255, 255, 0.12); /* soft white overlay */
 }
 
@@ -55,6 +57,13 @@ html {
     text-align: right;
 }
 
+.custom-max-width {
+    max-width: 1140px;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .custom-bg-white {
     background: var(--color-white);
 }
@@ -69,8 +78,21 @@ html {
     color: var(--color-primary) !important;
 }
 
+.bg-first-main {
+    background: var(--color-second-main) !important;
+}
+
+.custom-sec-text-green {
+    color: var(--color-secondary) !important;
+}
+
 .custom-text-white {
     color: var(--color-white);
+}
+
+.custom-border-bottom {
+    border-bottom: 1px solid #c3c8c1;
+    gap: 6px;
 }
 
 main {

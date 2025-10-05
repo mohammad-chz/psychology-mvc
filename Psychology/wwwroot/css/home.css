@@ -5,11 +5,20 @@
 
 /* nice centering + spacing for a hero */
 .hero-center {
+    position: relative;
     display: grid;
     place-items: center; /* centers content both axes */
     padding-block: 32px; /* some breathing room */
     color: var(--color-white); /* readable on your green bg */
+    padding-bottom: var(--divider-h-sm, 36px); /* smaller divider space */
+    overflow: hidden;
 }
+
+    /* keep hero content above the divider */
+    .hero-center > * {
+        position: relative;
+        z-index: 1;
+    }
 
 .custom-bg-individual {
     background: #377648;
@@ -65,6 +74,191 @@
         cursor: pointer;
     }
 
+.divider-main-1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; /* was -3px; avoid seams by anchoring to 0 */
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 0;
+    pointer-events: none; /* divider is decorative; keep clicks on content */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/*----------Report---------*/
+.report {
+    padding-bottom: 10rem;
+}
+
+    .report img {
+        position: absolute;
+        transform: scaleX(-1);
+        top: -70px;
+        right: -59px;
+    }
+
+.down-arrow {
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+    .down-arrow img:hover {
+        opacity: 0.6;
+    }
+
+.counter + span {
+    margin-right: 4px;
+}
+
+.curved-top {
+    z-index: 2;
+    margin-top: -5.25rem;
+    padding-top: 84px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .curved-top:before {
+        content: "";
+        height: 84px;
+        z-index: -1;
+        background: #f7f0e6;
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: scaleX(1.15);
+    }
+
+/*----------counselor-feature---------*/
+.counselor-feature {
+    background: linear-gradient(#f7f0e6 60%, #fffcf6 80%);
+}
+
+.container-counselor-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counselor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(2, 120px);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+    .counselor-grid img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .counselor-grid img:hover {
+            transform: scale(1.05);
+        }
+
+.counselor-feature button {
+    color: #325343;
+    background-color: #a6de9b;
+    border-color: #0000;
+    border-radius: 1rem;
+    transition: all 0.1s ease-in-out;
+}
+
+    .counselor-feature button:hover {
+        color: white;
+        background-color: #325343;
+        outline: none;
+    }
+
+/*----------how-work---------*/
+.divider-2 {
+    position: relative;
+    height: 14rem;
+    background-color: #fffcf6;
+}
+
+    .divider-2 img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+.how-work {
+    background-color: #f5f7f5;
+    position: relative;
+    padding-bottom: 6rem !important; /* قابل تنظیم */
+}
+
+.how-work-info .media-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.how-work-info img {
+    width: 100%;
+    max-width: 520px; /* جلوگیری از بزرگ شدن بیش از حد در دسکتاپ */
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.arrow-image {
+    width: 40px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.how-work h3 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.how-work p {
+    margin: 0;
+    line-height: 1.6;
+    color: #2b2b2b;
+}
+
+/*----------comparison-table---------*/
+.divider-3 {
+    position: relative;
+    height: 5.5rem;
+    background-color: #fffcf6;
+}
+
+    .divider-3 img {
+        position: absolute;
+        bottom: -0.5rem;
+        width: 100%;
+        height: auto;
+        z-index: 10;
+    }
+
+.comparison-table {
+    background-color: #325343;
+    color: #fff;
+}
+
+/*----------Responsive---------*/
 @media (max-width: 575.98px) {
     .hero-center h1 {
         font-size: 24px;
@@ -75,7 +269,7 @@
     }
 
         .home-items-group .img-container {
-            aspect-ratio: 16 / 6;
+            aspect-ratio: 17 / 6;
             height: auto;
         }
 
@@ -94,6 +288,57 @@
     .img-container .info-item {
         position: absolute;
         right: 20px;
-        top: 10px;
+        top: 20px;
+    }
+
+    /*----------Report---------*/
+    .report {
+        padding-bottom: 7rem;
+    }
+
+        .report img {
+            width: 50px;
+            transform: scaleX(-1);
+            top: -40px;
+            right: -40px;
+        }
+
+    /*----------counselor-feature---------*/
+    .counselor-grid {
+        grid-template-columns: repeat(2, 100px);
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+
+    /*----------how-work---------*/
+    .how-work {
+        padding-bottom: 3rem !important;
+    }
+
+    .how-work-info {
+        text-align: center;
+    }
+
+        .how-work-info .d-flex.flex-column {
+            align-items: center;
+        }
+
+    .how-work h3 {
+        font-size: 1.125rem;
+    }
+
+    .how-work-info img {
+        max-width: 420px;
+    }
+
+    .divider-2 {
+        height: 4rem;
+    }
+
+    /*----------comparison-table---------*/
+    .divider-3 {
+        position: relative;
+        height: 1rem;
+        background-color: #fffcf6;
     }
 }

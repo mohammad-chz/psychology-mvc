@@ -1,8 +1,7 @@
 ﻿@{
     ViewData["Title"] = "خانه";
 }
-
-<section id="hero" class="custom-bg-green screen-with-header hero-center">
+<section class="custom-bg-green screen-with-header hero-center">
     <div class="d-flex flex-column align-items-center gap-3 px-3">
         <h1>شما سزاوار شادی هستید.</h1>
         <div>دنبال چه نوع درمانی هستید؟</div>
@@ -14,7 +13,7 @@
                     <img class="custom-bg-individual d-block d-sm-none" src="~/img/home/individual_mobile.png" loading="lazy" alt="فردی‌ها" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">فردی</p>
-                        <div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای خودم</p>
                             <i class="fa-solid fa-arrow-left text-white"></i>
                         </div>
@@ -27,7 +26,7 @@
                     <img class="custom-bg-couples d-block d-sm-none" src="~/img/home/couples_mobile.png" loading="lazy" alt="زوج‌ها" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">زوج‌ها</p>
-                        <div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای من و شریکم</p>
                             <i class="fa-solid fa-arrow-left text-white"></i>
                         </div>
@@ -40,7 +39,7 @@
                     <img class="custom-bg-teen d-block d-sm-none" src="~/img/home/teen_mobile.png" loading="lazy" alt="مشاوره نوجوانان" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">نوجوان</p>
-                        <div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای فرزندم</p>
                             <i class="fa-solid fa-arrow-left text-white"></i>
                         </div>
@@ -49,28 +48,177 @@
             </li>
         </ul>
     </div>
+    <img class="w-100 divider-main-1" src="~/img/home/divider-main-1.png" aria-hidden="true" loading="lazy" />
+    <div class="down-arrow">
+        <img src="~/img/home/chevron-down.svg" />
+    </div>
 </section>
 
-<section class="reveal" data-reveal="fade-right" data-delay="100">
-    <h2>Features</h2>
-    <p>Modern design, fast performance, and responsive layout.</p>
+<section id="stats" class="reveal report bg-first-main mx-auto pt-0 pt-5" data-reveal="fade-right" data-delay="100">
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between custom-max-width mx-auto">
+        <div class="position-relative flex-grow-1">
+            <img src="~/img/home/line-burst-green.svg" loading="lazy" alt="خط" aria-hidden="true" />
+            <h2>
+                بزرگترین سرویس درمانی.
+            </h2>
+            <h3 class="custom-sec-text-green">
+                100% آنلاین
+            </h3>
+        </div>
+        <div class="flex-grow-1">
+            <div class="d-flex flex-column custom-border-bottom py-3">
+                <div aria-label="1000 پیام‌ها، چت، جلسات صوتی، تصویری">
+                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="1000">0</span>
+                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                </div>
+                <span>جلسه مشاوره، پیام و تماس موفق</span>
+            </div>
+            <div class="d-flex flex-column custom-border-bottom py-3">
+                <div aria-label="65 درمانگران دارای مجوز آماده کمک هستند">
+                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="65">0</span>
+                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                </div>
+                <span>درمانگر حرفه‌ای دارای مجوز همراه شما هستند</span>
+            </div>
+            <div class="d-flex flex-column py-3">
+                <div aria-label="750 مردم کمک گرفتند">
+                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="750">0</span>
+                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                </div>
+                <span>کاربر تا امروز از ما کمک گرفته‌اند</span>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="reveal" data-reveal="zoom-in" data-delay="200">
-    <h2>Features</h2>
-    <p>Modern design, fast performance, and responsive layout.</p>
+<div class="curved-top">
+</div>
+
+<section id="counselorFeature" class="counselor-feature p-4 p-lg-0" data-reveal="zoom-in" data-delay="200">
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5">
+        <div class="d-flex flex-column gap-3 flex-grow-1 align-items-lg-start">
+            <h2 class="lh-base">درمانگران حرفه‌ای، دارای مجوز و معتبر که می‌توانید به آن‌ها اعتماد کنید.</h2>
+            <p class="d-none d-lg-block lh-lg">
+                به بزرگ‌ترین شبکه درمانگران معتبر و باتجربه دسترسی پیدا کنید؛
+                افرادی که می‌توانند در زمینه‌های مختلف مانند افسردگی، اضطراب، روابط،
+                تروما، غم و سوگ و بسیاری مسائل دیگر همراه شما باشند. با درمانگران ما،
+                همان سطح حرفه‌ای‌گری و کیفیتی را دریافت می‌کنید که از جلسات حضوری انتظار دارید،
+                با این تفاوت که می‌توانید هر زمان و به هر شیوه‌ای که راحت‌تر هستید، ارتباط برقرار کنید.
+            </p>
+            <button class="d-none d-lg-block p-2">
+                پیشنهاد تراپیست مناسب من
+            </button>
+        </div>
+        <div class="flex-grow-1 container-counselor-images">
+            <div class="counselor-grid">
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+                <img src="~/img/home/doctor-cheraghzadeh.jpg" alt="دکتر" loading="lazy" />
+            </div>
+        </div>
+        <p class="d-block d-lg-none">
+            به بزرگ‌ترین شبکه درمانگران معتبر و باتجربه دسترسی پیدا کنید؛
+            افرادی که می‌توانند در زمینه‌های مختلف مانند افسردگی، اضطراب، روابط،
+            تروما، غم و سوگ و بسیاری مسائل دیگر همراه شما باشند. با درمانگران ما،
+            همان سطح حرفه‌ای‌گری و کیفیتی را دریافت می‌کنید که از جلسات حضوری انتظار دارید،
+            با این تفاوت که می‌توانید هر زمان و به هر شیوه‌ای که راحت‌تر هستید، ارتباط برقرار کنید.
+        </p>
+        <button class="d-block d-lg-none p-2">
+            پیشنهاد تراپیست مناسب من
+        </button>
+    </div>
 </section>
 
-<section class="reveal" data-reveal="fade-up">
-    <h2>Features</h2>
-    <p>Modern design, fast performance, and responsive layout.</p>
+<section class="divider-2">
+    <img src="~/img/home/divider-main-2.png" alt="" loading="lazy" />
 </section>
 
-<section class="reveal" data-reveal="fade-up">
-    <h2>Features</h2>
-    <p>Modern design, fast performance, and responsive layout.</p>
+<section id="howWork" class="how-work p-4 p-lg-0">
+    <div class="reveal" data-reveal="fade-up">
+        <h2 class="text-center pb-3 pb-lg-5">چطور کار می‌کند؟</h2>
+
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5 how-work-info">
+            <div class="d-flex flex-column gap-3 flex-grow-1 align-items-lg-start">
+                <h3 class="lh-base">درمانگر مناسب خود را پیدا کنید</h3>
+                <p>
+                    تنها با پاسخ دادن به چند پرسش ساده، ما به شما کمک می‌کنیم تا درمانگری دارای مجوز را بیابید که با نیازها و ترجیحات شما بیشترین تطابق را دارد.
+                    به بزرگ‌ترین شبکه‌ی آنلاین درمانگران حرفه‌ای دسترسی خواهید داشت.
+                </p>
+            </div>
+
+            <div class="flex-grow-1 media-wrap">
+                <img src="~/img/home/image-how-it-works-1.png" alt="نمایش صفحه‌ی پیدا کردن درمانگر" loading="lazy" />
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal" data-reveal="fade-up">
+        <div class="py-5 text-center">
+            <!-- این تصویر تزیینی است -->
+            <img class="arrow-image" src="~/img/home/arrow-down-green-2.png" alt="" aria-hidden="true" loading="lazy" />
+        </div>
+
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5 how-work-info">
+            <div class="d-flex flex-column gap-3 flex-grow-1 align-items-lg-start">
+                <h3 class="lh-base">به شیوه‌ی دلخواه خود ارتباط بگیرید</h3>
+                <p>
+                    با درمانگر خود از هر روشی که برایتان راحت‌تر است ارتباط برقرار کنید؛
+                    از طریق پیام، چت، تماس صوتی یا ویدیو.
+                    همان کیفیت، حرفه‌ای‌گری و توجهی را تجربه خواهید کرد که از جلسات حضوری انتظار دارید.
+                </p>
+            </div>
+
+            <div class="flex-grow-1 media-wrap">
+                <img src="~/img/home/image-how-it-works-2.png" alt="ارتباط از طریق پیام، تماس صوتی و ویدیو" loading="lazy" />
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal" data-reveal="fade-up">
+        <div class="py-5 text-center">
+            <img class="arrow-image" src="~/img/home/arrow-down-green-2.png" alt="" aria-hidden="true" loading="lazy" />
+        </div>
+
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5 how-work-info">
+            <div class="d-flex flex-column gap-3 flex-grow-1 align-items-lg-start">
+                <h3 class="lh-base">دسترسی به درمان، هر زمان که بخواهید</h3>
+                <p>
+                    در هر زمان و از هر مکان می‌توانید برای درمانگر خود پیام بفرستید.
+                    همچنین می‌توانید جلسات زنده را در زمان دلخواه خود برنامه‌ریزی کنید
+                    و از طریق تلفن همراه یا رایانه به‌راحتی به آن متصل شوید.
+                </p>
+            </div>
+
+            <div class="flex-grow-1 media-wrap">
+                <img src="~/img/home/image-how-it-works-3.png" alt="دسترسی به جلسات درمان از موبایل و کامپیوتر" loading="lazy" />
+            </div>
+        </div>
+    </div>
 </section>
+
+<section class="divider-3" aria-hidden="true">
+    <img src="~/img/home/divider-main-3.png" alt="" loading="lazy" />
+</section>
+
+<section id="comparison" class="comparison-table">
+    <div class="reveal p-5" data-reveal="fade-up">
+        <h1>test</h1>
+        <h1>test</h1>
+        <h1>test</h1>
+        <h1>test</h1>
+    </div>
+
+    <img class="w-100 h-auto" src="~/img/home/divider-main-4.png" alt="" loading="lazy" />
+</section>
+
 
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/home.js"></script>
 }
