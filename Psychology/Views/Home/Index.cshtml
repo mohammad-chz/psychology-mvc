@@ -204,16 +204,241 @@
 </section>
 
 <section id="comparison" class="comparison-table">
-    <div class="reveal p-5" data-reveal="fade-up">
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
+    <div class="reveal py-5 comparison-table custom-max-width mx-auto" data-reveal="fade-up">
+        <h3 class="text-center">مقایسه سنس کلینیک با درمان سنتی (حضوری)</h3>
+
+        <div class="table-container">
+            <div class="table-row header">
+                <div></div>
+                <div>
+                    <img class="logo" src="~/img/global/logo-white.webp" loading="lazy" />
+                    <span class="d-none d-lg-block">سنس کلینیک</span>
+                </div>
+                <div>درمان سنتی</div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>تحت نظر درمانگران دارای مجوز و تخصص</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="تمام جلسات توسط درمانگران تأیید‌شده و دارای مجوز رسمی انجام می‌شود.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>نیاز به مراجعه حضوری</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="در سنس کلینیک، تمام جلسات به‌صورت آنلاین برگزار می‌شود و نیازی به حضور فیزیکی نیست.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/no.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>برنامه‌ریزی و رزرو آسان جلسات</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="کاربران می‌توانند به‌صورت آنلاین زمان مناسب را انتخاب و رزرو کنند.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/no.svg" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>کاربرگ‌ها و فرم‌های دیجیتال</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="تمام فرم‌ها و ارزیابی‌ها به‌صورت آنلاین و دیجیتالی انجام می‌شوند.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/no.svg" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>تطبیق هوشمند درمانگر با نیاز شما</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="سیستم هوشمند سنس کلینیک بهترین درمانگر را بر اساس نیاز و اهداف شما پیشنهاد می‌دهد.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/no.svg" loading="lazy" />
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <span>دسترسی از هر مکان و در هر زمان</span>
+                    <i class="fas fa-info-circle ms-2"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="left"
+                       title="می‌توانید بدون محدودیت مکانی و زمانی به درمان خود ادامه دهید.">
+                    </i>
+                </div>
+                <div class="bg-white justify-content-center">
+                    <img src="~/img/home/yes.svg" loading="lazy" />
+                </div>
+                <div class="justify-content-center">
+                    <img src="~/img/home/no.svg" loading="lazy" />
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     <img class="w-100 h-auto" src="~/img/home/divider-main-4.png" alt="" loading="lazy" />
 </section>
 
+<div class="curved-top-2"></div>
+
+<section id="home_faq_section" class="home_faq_section">
+    <!-- HTML -->
+    <div class="reveal py-5 custom-max-width mx-auto" data-reveal="fade-up">
+        <h3 class="text-center">سوالات متداول</h3>
+
+        <div id="faqAccordion" class="faq-accordion">
+
+            <!-- item 1 -->
+            <div class="faq-item">
+                <button class="collapse-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse1"
+                        aria-expanded="false"
+                        aria-controls="collapse1"
+                        id="toggle1">
+                    <span>درمانگران چه کسانی هستند؟</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+
+                <div id="collapse1" class="collapse" aria-labelledby="toggle1" data-bs-parent="#faqAccordion">
+                    <div class="collapse-content">
+                        <p>
+                            ما از هر درمانگری که خدمات درمانی را در این پلتفرم ارائه می‌دهد،
+                            می‌خواهیم که دارای مجوز آموزش‌دیده و باتجربه از ایالات متحده، روانشناس (دکترا / PsyD)،
+                            درمانگر دارای مجوز ازدواج و خانواده (LMFT)، مددکار اجتماعی بالینی دارای مجوز (LCSW)،
+                            مشاور حرفه‌ای دارای مجوز (LPC)، مشاور سلامت روان دارای مجوز (LMHC) یا مجوز حرفه‌ای مشابه و
+                            شناخته‌شده بر اساس ایالت و/یا حوزه قضایی خود باشد.
+                            درمانگران باید دارای مدرک دانشگاهی مرتبط در رشته خود،
+                            حداقل 3 سال سابقه کار، حداقل 1000 ساعت تجربه عملی باشند و پس از تکمیل موفقیت‌آمیز الزامات آموزشی،
+                            امتحانات، آموزش و تمرین لازم، طبق مقررات، توسط هیئت ایالتی مربوطه واجد شرایط و دارای مجوز باشند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- item 2 -->
+            <div class="faq-item">
+                <button class="collapse-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse2"
+                        aria-expanded="false"
+                        aria-controls="collapse2"
+                        id="toggle2">
+                    <span>چه کسی به من کمک خواهد کرد؟</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+
+                <div id="collapse2" class="collapse" aria-labelledby="toggle2" data-bs-parent="#faqAccordion">
+                    <div class="collapse-content">
+                        <p>
+                            پس از ثبت نام، ما شما را با یک درمانگر در دسترس که با اهداف، ترجیحات و نوع مشکلاتی که با آنها مواجه هستید،
+                            مطابقت می‌دهد، مرتبط خواهیم کرد. درمانگران مختلف رویکردها و حوزه‌های تمرکز متفاوتی دارند،
+                            بنابراین مهم است که فرد مناسبی را پیدا کنید که بتواند بهترین نتایج را برای شما به ارمغان بیاورد.
+                            ما دریافته‌ایم که در بیشتر مواقع می‌توانیم یک درمانگر موفق ارائه دهیم. با این حال،
+                            اگر این فرآیند را شروع کنید و احساس کنید درمانگر شما برای شما مناسب نیست، می‌توانید درمانگر دیگری را برای خود انتخاب کنید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تکرار برای collapse3, collapse4, collapse5 -->
+            <div class="faq-item">
+                <button class="collapse-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse3"
+                        aria-expanded="false"
+                        aria-controls="collapse3"
+                        id="toggle3">
+                    <span>عنوان سوال ۳</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+                <div id="collapse3" class="collapse" aria-labelledby="toggle3" data-bs-parent="#faqAccordion">
+                    <div class="collapse-content"><p>محتوا ۳</p></div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="collapse-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse4"
+                        aria-expanded="false"
+                        aria-controls="collapse4"
+                        id="toggle4">
+                    <span>عنوان سوال ۴</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+                <div id="collapse4" class="collapse" aria-labelledby="toggle4" data-bs-parent="#faqAccordion">
+                    <div class="collapse-content"><p>محتوا ۴</p></div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="collapse-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse5"
+                        aria-expanded="false"
+                        aria-controls="collapse5"
+                        id="toggle5">
+                    <span>عنوان سوال ۵</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+                <div id="collapse5" class="collapse" aria-labelledby="toggle5" data-bs-parent="#faqAccordion">
+                    <div class="collapse-content"><p>محتوا ۵</p></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
 
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />

@@ -239,6 +239,32 @@
 }
 
 /*----------comparison-table---------*/
+.curved-top-2 {
+    z-index: 4;
+    margin-top: -4.5rem;
+    margin-bottom: -1px;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .curved-top-2:before {
+        content: "";
+        height: 72px;
+        z-index: -1;
+        background: #fffcf6;
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: scaleX(1.15);
+    }
+
+.home_faq_section {
+    background-color: #fffcf6;
+}
+
 .divider-3 {
     position: relative;
     height: 5.5rem;
@@ -256,6 +282,43 @@
 .comparison-table {
     background-color: #325343;
     color: #fff;
+}
+
+.logo {
+    width: 3rem;
+}
+
+.table-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.table-row {
+    display: contents;
+}
+
+    .table-row > div {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-bottom: 1px solid #939b92;
+    }
+
+    .table-row.header > div {
+        font-weight: bold;
+        justify-content: center;
+    }
+
+        .table-row.header > div:nth-child(2) {
+            background: #397a4a;
+            border-radius: .5rem .5rem 0 0;
+        }
+
+.comparison-table i {
+    color: #9bd58b;
 }
 
 /*----------Responsive---------*/
@@ -341,4 +404,72 @@
         height: 1rem;
         background-color: #fffcf6;
     }
+
+    .curved-top-2:before {
+        height: 14px;
+    }
+
+    .table-container {
+    }
+
+        .table-row > div {
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #939b92;
+        }
+
+    .table-row span {
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+        .table-row.header > div {
+            font-weight: bold;
+            justify-content: center;
+        }
+}
+
+/*----------collapse-toggle---------*/
+.faq-accordion {
+    direction: rtl;
+}
+
+.faq-item {
+    border-bottom: 1px solid #c3c8c1;
+}
+
+.collapse-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    text-align: right;
+    cursor: pointer;
+}
+
+    .collapse-toggle:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .collapse-toggle i {
+        transition: transform 0.3s ease;
+        font-size: 1.2rem;
+    }
+
+    .collapse-toggle[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+
+.collapse-content {
+    padding: 1rem 0;
+    color: #333;
+}
+
+.faq-item:last-child {
+    border-bottom: 0;
 }

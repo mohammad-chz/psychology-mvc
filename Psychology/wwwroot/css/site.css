@@ -132,7 +132,7 @@ main {
 
 .logo img {
     display: block;
-    height: 60px;
+    height: 4.5rem;
     width: auto;
 }
 
@@ -420,4 +420,9 @@ html.nav-open {
     html.nav-open .menu-toggle .icon-close {
         display: block;
     }
+}
+
+footer {
+    background-color: #f5f7f5;
+    border-top: 1px solid #e7ece7;
 }
