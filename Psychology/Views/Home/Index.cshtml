@@ -1,89 +1,93 @@
 ﻿@{
     ViewData["Title"] = "خانه";
 }
-<section class="custom-bg-green screen-with-header hero-center">
+<section class="bg-green-dark-hero screen-with-header hero-center">
     <div class="d-flex flex-column align-items-center gap-3 px-3">
         <h1>شما سزاوار شادی هستید.</h1>
-        <div>دنبال چه نوع درمانی هستید؟</div>
+        <div class="pre-consultation">
+            <span>دنبال چه نوع درمانی هستید؟</span>
+            <a asp-action="" asp-controller="">
+                <span>رزرو پیش مشاوره رایگان</span>
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
         @* Desktop *@
         <ul class="d-flex d-md-flex flex-column flex-lg-row justify-content-between align-items-center gap-3 home-items-group p-0">
             <li class="img-container">
                 <a asp-controller="test" asp-action="test">
-                    <img class="custom-bg-individual d-none d-sm-block" src="~/img/home/individual_desktop.png" loading="lazy" alt="فردی‌ها" />
-                    <img class="custom-bg-individual d-block d-sm-none" src="~/img/home/individual_mobile.png" loading="lazy" alt="فردی‌ها" />
+                    <img class="custom-bg-category" src="~/img/home/individual.webp" loading="lazy" alt="فردی‌ها" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">فردی</p>
                         <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای خودم</p>
-                            <i class="fa-solid fa-arrow-left text-white"></i>
+                            <i class="fa-solid fa-arrow-left text-green-pale" aria-hidden="true"></i>
                         </div>
                     </div>
                 </a>
             </li>
             <li class="img-container">
                 <a asp-controller="test" asp-action="test">
-                    <img class="custom-bg-couples d-none d-sm-block" src="~/img/home/couples_desktop.png" loading="lazy" alt="زوج‌ها" />
-                    <img class="custom-bg-couples d-block d-sm-none" src="~/img/home/couples_mobile.png" loading="lazy" alt="زوج‌ها" />
+                    <img class="custom-bg-category" src="~/img/home/couples.webp" loading="lazy" alt="زوج‌ها" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">زوج‌ها</p>
                         <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای من و شریکم</p>
-                            <i class="fa-solid fa-arrow-left text-white"></i>
+                            <i class="fa-solid fa-arrow-left text-green-pale"></i>
                         </div>
                     </div>
                 </a>
             </li>
             <li class="img-container">
                 <a asp-controller="test" asp-action="test" class="">
-                    <img class="custom-bg-teen d-none d-sm-block" src="~/img/home/teen_desktop.png" loading="lazy" alt="مشاوره نوجوانان" />
-                    <img class="custom-bg-teen d-block d-sm-none" src="~/img/home/teen_mobile.png" loading="lazy" alt="مشاوره نوجوانان" />
+                    <img class="custom-bg-category" src="~/img/home/teen.webp" loading="lazy" alt="مشاوره نوجوانان" />
                     <div class="info-item d-flex flex-column gap-sm-2">
                         <p class="h3">نوجوان</p>
                         <div class="d-flex align-items-center gap-2 pt-2 p-lg-0">
                             <p class="m-0">برای فرزندم</p>
-                            <i class="fa-solid fa-arrow-left text-white"></i>
+                            <i class="fa-solid fa-arrow-left text-green-pale"></i>
                         </div>
                     </div>
                 </a>
             </li>
         </ul>
     </div>
-    <img class="w-100 divider-main-1" src="~/img/home/divider-main-1.png" aria-hidden="true" loading="lazy" />
-    <div class="down-arrow">
-        <img src="~/img/home/chevron-down.svg" />
-    </div>
+    <img class="w-100 divider-main-1" src="~/img/home/divider-main-1.svg" aria-hidden="true" loading="lazy" />
 </section>
 
-<section id="stats" class="reveal report bg-first-main mx-auto pt-0 pt-5" data-reveal="fade-right" data-delay="100">
-    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between custom-max-width mx-auto">
+<div id="scrollToStats" class="down-arrow">
+    <img src="~/img/home/chevron-down.svg" alt="Scroll down" />
+</div>
+
+<section id="stats" class="report custom-bg-pale mx-auto">
+    <div class="reveal d-flex flex-column flex-lg-row align-items-center justify-content-between custom-max-width mx-auto" data-reveal="fade-right" data-delay="100">
         <div class="position-relative flex-grow-1">
             <img src="~/img/home/line-burst-green.svg" loading="lazy" alt="خط" aria-hidden="true" />
             <h2>
                 بزرگترین سرویس درمانی.
             </h2>
-            <h3 class="custom-sec-text-green">
+            <h3 class="text-green-medium">
                 100% آنلاین
             </h3>
         </div>
         <div class="flex-grow-1">
             <div class="d-flex flex-column custom-border-bottom py-3">
                 <div aria-label="1000 پیام‌ها، چت، جلسات صوتی، تصویری">
-                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="1000">0</span>
-                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                    <span class="counter h2 fw-bolder text-green-medium" data-target="1000">0</span>
+                    <span class="h2 fw-bold text-green-medium">+</span>
                 </div>
                 <span>جلسه مشاوره، پیام و تماس موفق</span>
             </div>
             <div class="d-flex flex-column custom-border-bottom py-3">
                 <div aria-label="65 درمانگران دارای مجوز آماده کمک هستند">
-                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="65">0</span>
-                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                    <span class="counter h2 fw-bolder text-green-medium" data-target="65">0</span>
+                    <span class="h2 fw-bold text-green-medium">+</span>
                 </div>
                 <span>درمانگر حرفه‌ای دارای مجوز همراه شما هستند</span>
             </div>
             <div class="d-flex flex-column py-3">
                 <div aria-label="750 مردم کمک گرفتند">
-                    <span class="counter h2 fw-bolder custom-sec-text-green" data-target="750">0</span>
-                    <span class="h2 fw-bold custom-sec-text-green">+</span>
+                    <span class="counter h2 fw-bolder text-green-medium" data-target="750">0</span>
+                    <span class="h2 fw-bold text-green-medium">+</span>
                 </div>
                 <span>کاربر تا امروز از ما کمک گرفته‌اند</span>
             </div>
@@ -94,7 +98,7 @@
 <div class="curved-top">
 </div>
 
-<section id="counselorFeature" class="counselor-feature p-4 p-lg-0" data-reveal="zoom-in" data-delay="200">
+<section id="counselorFeature" class="counselor-feature p-4 p-lg-0">
     <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5">
         <div class="d-flex flex-column gap-3 flex-grow-1 align-items-lg-start">
             <h2 class="lh-base">درمانگران حرفه‌ای، دارای مجوز و معتبر که می‌توانید به آن‌ها اعتماد کنید.</h2>
@@ -133,11 +137,11 @@
 </section>
 
 <section class="divider-2">
-    <img src="~/img/home/divider-main-2.png" alt="" loading="lazy" />
+    <img src="~/img/home/divider-main-2.svg" alt="" loading="lazy" />
 </section>
 
 <section id="howWork" class="how-work p-4 p-lg-0">
-    <div class="reveal" data-reveal="fade-up">
+    <div class="reveal" data-reveal="fade-up" data-delay="100">
         <h2 class="text-center pb-3 pb-lg-5">چطور کار می‌کند؟</h2>
 
         <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between custom-max-width mx-auto gap-3 gap-lg-5 how-work-info">
@@ -200,11 +204,11 @@
 </section>
 
 <section class="divider-3" aria-hidden="true">
-    <img src="~/img/home/divider-main-3.png" alt="" loading="lazy" />
+    <img src="~/img/home/divider-main-3.svg" alt="" loading="lazy" />
 </section>
 
 <section id="comparison" class="comparison-table">
-    <div class="reveal py-5 comparison-table custom-max-width mx-auto" data-reveal="fade-up">
+    <div class="reveal py-5 comparison-table custom-max-width mx-auto" data-reveal="zoom-in" data-delay="100">
         <h3 class="text-center">مقایسه سنس کلینیک با درمان سنتی (حضوری)</h3>
 
         <div class="table-container">
@@ -320,17 +324,11 @@
             </div>
         </div>
     </div>
-
-
-
-    <img class="w-100 h-auto" src="~/img/home/divider-main-4.png" alt="" loading="lazy" />
 </section>
-
-<div class="curved-top-2"></div>
 
 <section id="home_faq_section" class="home_faq_section">
     <!-- HTML -->
-    <div class="reveal py-5 custom-max-width mx-auto" data-reveal="fade-up">
+    <div class="reveal py-5 custom-max-width mx-auto" data-reveal="fade-up" data-delay="100">
         <h3 class="text-center">سوالات متداول</h3>
 
         <div id="faqAccordion" class="faq-accordion">

@@ -19,8 +19,8 @@
         function openNav() {
             const $navLinks = $("#nav-list a");
 
-            if (!$navLinks.hasClass("custom-text-green")) {
-                $navLinks.addClass("custom-text-green");
+            if (!$navLinks.hasClass("text-green-dark")) {
+                $navLinks.addClass("text-green-dark");
                 //$header.addClass("custom-scroll-header");
             }
 
@@ -89,7 +89,7 @@
 
             // Header + nav styles
             $header.toggleClass("custom-scroll-header", on);
-            $navLinks.toggleClass("custom-text-green", on);
+            $navLinks.toggleClass("text-green-dark", on);
 
             if ($(window).width() > 768) {
                 $btnLogin.toggleClass("scrolled", on);

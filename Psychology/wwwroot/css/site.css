@@ -1,11 +1,24 @@
 ﻿:root {
     --header-h: 4rem;
     --shadow-1: 0 2px 14px rgba(0,0,0,.06);
-    --color-white: #FFFFFF;
-    --color-primary: #325343;
-    --color-secondary: #397a4a;
-    --color-second-main: #fffcf6;
-    --nav-hover-bg: rgba(255, 255, 255, 0.12); /* soft white overlay */
+    /* === Brand Greens Palette === */
+    --color-green-dark: #40513B;
+    --color-green-medium: #609966;
+    --color-green-light: #9DC08B;
+    --color-green-pale: #EDF1D6;
+    /* === Background Variants === */
+    --bg-green-dark: var(--color-green-dark);
+    --bg-green-medium: var(--color-green-medium);
+    --bg-green-light: var(--color-green-light);
+    --bg-green-pale: var(--color-green-pale);
+    /* === Text Variants === */
+    --text-green-dark: var(--color-green-dark);
+    --text-green-medium: var(--color-green-medium);
+    --text-green-light: var(--color-green-light);
+    --text-green-pale: var(--color-green-pale);
+    /* === Neutral Colors === */
+    --color-white: #f5f7f5;
+    --color-black: #000000;
 }
 
 @font-face {
@@ -64,30 +77,66 @@ html {
     padding-right: 1rem;
 }
 
-.custom-bg-white {
-    background: var(--color-white);
+/* === Text Colors === */
+.custom-text-white {
+    color: var(--color-white) !important;
 }
 
-.custom-bg-green {
-    background-color: var(--color-primary);
+.custom-text-black {
+    color: var(--color-black) !important;
+}
+
+/* === Background Colors === */
+.custom-bg-white {
+    background-color: var(--color-white) !important;
+}
+
+.custom-bg-black {
+    background-color: var(--color-black) !important;
+}
+
+.custom-bg-pale {
+    background-color: var(--bg-green-pale) !important;
+}
+
+/* === Text Colors === */
+.text-green-dark {
+    color: var(--color-green-dark) !important;
+}
+
+.text-green-medium {
+    color: var(--color-green-medium) !important;
+}
+
+.text-green-light {
+    color: var(--color-green-light) !important;
+}
+
+.text-green-pale {
+    color: var(--color-green-pale) !important;
+}
+
+/* === Background Colors === */
+.bg-green-dark-hero {
+    background-color: var(--color-green-dark) !important;
     background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
     background-size: 24px 24px;
 }
 
-.custom-text-green {
-    color: var(--color-primary) !important;
+.bg-green-dark {
+    background-color: var(--color-green-dark) !important;
 }
 
-.bg-first-main {
-    background: var(--color-second-main) !important;
+.bg-green-medium {
+    background-color: var(--color-green-medium) !important;
 }
 
-.custom-sec-text-green {
-    color: var(--color-secondary) !important;
+.bg-green-light {
+    background-color: var(--color-green-light) !important;
 }
 
-.custom-text-white {
-    color: var(--color-white);
+.bg-green-pale {
+    background-color: var(--color-green-pale) !important;
 }
 
 .custom-border-bottom {
@@ -104,7 +153,7 @@ main {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: var(--color-primary);
+    background-color: var(--bg-green-dark);
     background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
     background-size: 24px 24px;
     transition: background-color .25s ease, box-shadow .25s ease, border-color .25s ease;
@@ -120,9 +169,6 @@ main {
 }
 
 /* when scrolled */
-#header.custom-scroll-header {
-    --nav-hover-bg: rgba(50, 83, 67, .08); /* primary tint */
-}
 
 .logo-text {
     right: 2rem;
@@ -141,11 +187,6 @@ main {
     margin-inline-start: auto; /* push nav to the left in RTL */
     display: flex;
     align-items: center;
-}
-
-/* when the mobile menu is open (JS adds .nav-open to <html>) */
-html.nav-open {
-    --nav-hover-bg: rgba(255, 255, 255, 0.12);
 }
 
 .nav-list {
@@ -172,7 +213,8 @@ html.nav-open {
 
     .nav-list a:not(.btn-login):not(.btn-start):hover,
     .nav-list a:not(.btn-login):not(.btn-start):focus-visible {
-        background: var(--nav-hover-bg);
+        background: var(--bg-green-pale);
+        color: var(--text-green-dark);
         outline: none;
     }
 
@@ -180,27 +222,26 @@ html.nav-open {
     text-decoration: none;
     display: flex;
     align-items: center;
-    border: 1px solid white;
+    border: 1px solid var(--color-white);
     padding: 0.5rem 1.5rem;
     border-radius: 2rem;
     transition: all 0.3s ease;
     cursor: pointer;
     background-color: transparent;
-    color: white;
+    color: var(--color-white);
 }
 
     /* scrolled (outline green) */
     .btn-login.scrolled {
         background-color: transparent;
-        color: #325343;
+        color: var(--color-green-dark);
         border-color: #325343;
     }
 
 
 
     .btn-login:hover {
-        border: 1px solid #5faa41;
-        color: #5faa41;
+        border: 1px solid var(--color-green-medium);
     }
 
 .btn-start {
@@ -212,16 +253,17 @@ html.nav-open {
     border-radius: 2rem;
     transition: all 0.3s ease;
     cursor: pointer;
-    background-color: #f5f7f5;
-    color: #325343;
+    background-color: var(--bg-green-medium);
+    color: var(--text-green-pale);
 }
 
     .btn-start.scrolled {
-        background-color: #a6de9b;
+        background-color: var(--bg-green-medium);
+        color: var(--text-green-pale) !important;
     }
 
     .btn-start:hover {
-        background: #def6d9;
+        opacity: 0.8;
     }
 
 /* Hamburger button (hidden on desktop) */
@@ -374,7 +416,7 @@ html.nav-open {
 
     .btn-login {
         width: 100%;
-        color: #325343;
+        color: var(--color-white);
         border-color: #325343;
         justify-content: center;
         align-items: center;
@@ -383,7 +425,8 @@ html.nav-open {
 
     .btn-start {
         width: 100%;
-        background-color: #a6de9b;
+        background-color: var(--bg-green-dark);
+        color: var(--text-green-pale);
         font-weight: normal;
         justify-content: center;
         align-items: center;

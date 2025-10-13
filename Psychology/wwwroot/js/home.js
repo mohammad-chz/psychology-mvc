@@ -15,6 +15,12 @@
     })
 });
 
+document.getElementById("scrollToStats").addEventListener("click", function () {
+    const target = document.getElementById("stats");
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+});
 function animateCounter(el, duration = 2000) {
     const target = +el.dataset.target;
     const startTime = performance.now();

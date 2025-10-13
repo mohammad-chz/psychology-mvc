@@ -1,0 +1,10 @@
+<svg width="1440" height="120" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+	<!-- Background -->
+	<rect width="1440" height="120" fill="#40513B"/>
+	<!-- Back wave (subtle, translucent for depth) -->
+	<path d="M0,28 C180,18 360,10 540,22 C720,34 900,56 1080,44 C1220,34 1330,18 1440,22 L1440,0 L0,0 Z"
+		  fill="#EDF1D6" opacity="0.55"/>
+	<!-- Front wave (solid) -->
+	<path d="M0,40 C220,30 380,48 560,40 C760,30 940,14 1140,28 C1280,38 1360,36 1440,32 L1440,0 L0,0 Z"
+		  fill="#f5f7f5"/>
+</svg>
