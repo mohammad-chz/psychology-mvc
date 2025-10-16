@@ -1,0 +1,62 @@
+﻿@model PreConsultationVm
+
+<div class="modal fade" id="preConsultationModal" tabindex="-1" role="dialog" aria-labelledby="preConsultationModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+            <div class="modal-header bg-success text-white justify-content-between">
+                <h5 class="modal-title" id="preConsultationModalLabel">رزرو پیش‌مشاوره رایگان</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form id="preConsultForm" method="post" asp-controller="PreConsultation" asp-action="Create">
+                @Html.AntiForgeryToken()
+
+                <div class="modal-body">
+                    <div class="row">
+
+                        <!-- Phone -->
+                        <div class="col-12 mb-3">
+                            <label asp-for="PhoneNumber" class="form-label fw-semibold"></label>
+
+                            <div class="phone-field d-flex align-items-stretch border rounded overflow-hidden">
+                                <select asp-for="PhonePrefixId"
+                                        class="form-select select2 phone-prefix"
+                                        id="prefixSelect"
+                                        aria-label="انتخاب">
+                                    <option value="">انتخاب کشور</option>
+                                </select>
+
+                                <input asp-for="PhoneNumber"
+                                       class="form-control phone-input"
+                                       placeholder="مثلاً 9121234567 (بدون صفر)"
+                                       inputmode="numeric"
+                                       autocomplete="tel" />
+                            </div>
+
+                            <span asp-validation-for="PhonePrefixId" class="text-danger d-block mt-1"></span>
+                            <span asp-validation-for="PhoneNumber" class="text-danger d-block mt-1"></span>
+                            <span id="comparePrefixWithPhone" class="text-danger d-block mt-1"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-12 mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <input asp-for="Email"
+                                   class="form-control email-input"
+                                   placeholder="YourEmail@gmail.com"
+                                   autocomplete="email" />
+                            <span asp-validation-for="Email" class="text-danger d-block mt-1"></span>
+                        </div>
+
+                        <div class="col-12 text-center mt-3">
+                            <button type="submit" class="btn btn-success px-4 py-2 rounded-pill shadow-sm">
+                                ارسال
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

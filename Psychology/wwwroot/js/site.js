@@ -65,7 +65,6 @@
     });
 
     $(function () {
-        const $header = $("#header");
         const $imgWhite = $("#logo .logo-white");
         const $imgBlack = $("#logo .logo-black");
         const $textLogoWhite = $("#logo .logo-text-white");
@@ -129,6 +128,3 @@
         });
     });
 });
-
-
-

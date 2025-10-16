@@ -1,0 +1,58 @@
+﻿/* حذف بوردرهای داخلی؛ فقط یک جداکننده بین سلکت و ورودی بماند */
+.phone-field .phone-prefix,
+.phone-field .phone-input {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* خط جداکننده بین select و input با توجه به جهت صفحه */
+html[dir="rtl"] .phone-field .phone-prefix {
+    border-left: 1px solid #ced4da;
+}
+
+html[dir="rtl"] .phone-field .phone-input {
+    border-left: 0;
+}
+
+html[dir="ltr"] .phone-field .phone-prefix {
+    border-right: 1px solid #ced4da;
+}
+
+html[dir="ltr"] .phone-field .phone-input {
+    border-right: 0;
+}
+
+/* تمرکز همسان */
+.phone-field :is(.form-control) {
+    box-shadow: none !important;
+}
+
+.phone-field :is(.form-control:focus) {
+    outline: none;
+}
+
+/* هایلایت فوکِس هماهنگ با Bootstrap success */
+.phone-field:has(.form-control:focus),
+.phone-field:has(.select2-container--focus) {
+    border-color: #198754 !important;
+}
+
+/* هم‌تراز کردن ارتفاع Select2 با input */
+.select2-container--default .select2-selection--single {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+}
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 1.25rem;
+        padding-inline: 0;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 100%;
+    }

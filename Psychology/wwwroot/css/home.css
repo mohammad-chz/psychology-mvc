@@ -27,20 +27,20 @@
         gap: 1rem;
     }
 
-        .hero-center .pre-consultation a {
+        .hero-center .pre-consultation button {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            text-decoration: none;
             background: var(--bg-green-medium);
             padding: 1rem;
             border-radius: 1rem;
+            border: none;
             color: var(--color-white);
             font-weight: bold;
             transition: all 0.3s ease-in-out;
         }
 
-            .hero-center .pre-consultation a:hover {
+            .hero-center .pre-consultation button:hover {
                 opacity: 0.7;
             }
 

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Psychology.Application.Interfaces;
-using Psychology.Application.Repositories;
 using Psychology.Domain.Entities;
 using Psychology.Infrastructure.Persistence;
 using Psychology.Infrastructure.Repositories;
@@ -38,6 +37,9 @@ builder.Services.ConfigureApplicationCookie(o =>
 // Repositories / UoW
 builder.Services.AddScoped<IErrorLogRepository, ErrorLogRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IPreConsultationRepository, PreConsultationRepository>();
+builder.Services.AddScoped<IPhonePrefixesRepository, PhonePrefixesRepository>();
 
 builder.Services.AddControllersWithViews();
 

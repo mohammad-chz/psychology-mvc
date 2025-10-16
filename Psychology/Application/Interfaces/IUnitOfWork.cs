@@ -5,7 +5,8 @@ namespace Psychology.Application.Interfaces
     public interface IUnitOfWork : IAsyncDisposable
     {
         // Repositories
-
+        IPreConsultationRepository PreConsultation { get; }
+        IPhonePrefixesRepository PhonePrefixes { get; }
         // Save
         Task<int> SaveChangesAsync(CancellationToken ct = default);
 

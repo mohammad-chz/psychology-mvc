@@ -8,7 +8,7 @@ using Psychology.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace Psychology.Infrastructure.Persistence.Migrations
+namespace Psychology.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -232,11 +232,11 @@ namespace Psychology.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Psychology.Domain.Entities.ErrorLog", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BodyPreview")
                         .HasColumnType("nvarchar(max)");
@@ -311,6 +311,119 @@ namespace Psychology.Infrastructure.Persistence.Migrations
                     b.ToTable("ErrorLogs");
                 });
 
+            modelBuilder.Entity("Psychology.Domain.Entities.PhonePrefix", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreateDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExpectedLength")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Prefix")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdateDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhonePrefixes");
+                });
+
+            modelBuilder.Entity("Psychology.Domain.Entities.PreConsultation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AssignedTherapistId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CreateDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("TherapyType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UpdateDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssignedTherapistId");
+
+                    b.ToTable("PreConsultations");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -360,6 +473,15 @@ namespace Psychology.Infrastructure.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Psychology.Domain.Entities.PreConsultation", b =>
+                {
+                    b.HasOne("Psychology.Domain.Entities.ApplicationUser", "AssignedTherapist")
+                        .WithMany()
+                        .HasForeignKey("AssignedTherapistId");
+
+                    b.Navigation("AssignedTherapist");
                 });
 #pragma warning restore 612, 618
         }

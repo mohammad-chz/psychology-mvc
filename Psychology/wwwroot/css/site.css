@@ -469,3 +469,9 @@ footer {
     background-color: #f5f7f5;
     border-top: 1px solid #e7ece7;
 }
+
+/* === Bootstrap class === */
+
+.btn-close {
+    margin: 0 !important;
+}

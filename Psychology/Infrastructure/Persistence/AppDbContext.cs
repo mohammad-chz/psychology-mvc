@@ -14,13 +14,15 @@ namespace Psychology.Infrastructure.Persistence
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<ErrorLog> ErrorLogs => Set<ErrorLog>();
-
+        public DbSet<PreConsultation> PreConsultations => Set<PreConsultation>();
+        public DbSet<PhonePrefix> PhonePrefixes => Set<PhonePrefix>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Global soft-delete filter for all BaseEntity
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
+
                 if (typeof(BaseEntity).IsAssignableFrom(entityType.ClrType))
                 {
                     var parameter = Expression.Parameter(entityType.ClrType, "e");

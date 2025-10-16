@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Psychology.Application.Interfaces;
-using Psychology.Application.Repositories;
 using Psychology.Infrastructure.Persistence;
 using System.Data;
 
@@ -12,10 +11,17 @@ namespace Psychology.Infrastructure.Repositories
         private readonly AppDbContext _ctx;
         private IDbContextTransaction? _tx;
 
+        public IPreConsultationRepository PreConsultation { get; }
+        public IPhonePrefixesRepository PhonePrefixes { get; }
+
         public UnitOfWork(
-            AppDbContext ctx)
+            AppDbContext ctx,
+            IPreConsultationRepository preConsultation,
+            IPhonePrefixesRepository phonePrefixes)
         {
             _ctx = ctx;
+            PreConsultation = preConsultation;
+            PhonePrefixes = phonePrefixes;
         }
 
         public Task<int> SaveChangesAsync(CancellationToken ct = default) => _ctx.SaveChangesAsync(ct);

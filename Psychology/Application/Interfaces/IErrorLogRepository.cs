@@ -1,5 +1,4 @@
-﻿using Psychology.Application.Repositories;
-using Psychology.Domain.Entities;
+﻿using Psychology.Domain.Entities;
 
 namespace Psychology.Application.Interfaces
 {

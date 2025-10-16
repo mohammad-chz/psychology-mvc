@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Psychology.Application.Repositories;
+using Psychology.Application.Interfaces;
 using Psychology.Infrastructure.Persistence;
 using System.Linq;
 using System.Linq.Expressions;
@@ -17,7 +17,7 @@ namespace Psychology.Infrastructure.Repositories
             _db = ctx.Set<T>();
         }
 
-        public virtual async Task<T?> GetByIdAsync(long id, CancellationToken ct = default)
+        public virtual async Task<T?> GetByIdAsync(int id, CancellationToken ct = default)
         {
             // Works when the key name is "Id" (long). If composite keys, override in specific repo.
             return await _db.FindAsync([id], ct);
@@ -36,21 +36,35 @@ namespace Psychology.Infrastructure.Repositories
             return await q.FirstOrDefaultAsync(predicate, ct);
         }
 
-        public virtual async Task<IReadOnlyList<T>> GetListAsync(
+        public virtual async Task<IReadOnlyList<TResult>> GetListAsync<TResult>(
             Expression<Func<T, bool>>? predicate = null,
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
             Func<IQueryable<T>, IQueryable<T>>? include = null,
+            Expression<Func<T, TResult>>? selector = null,
             bool asNoTracking = true,
             CancellationToken ct = default)
         {
             IQueryable<T> q = _db;
-            if (predicate != null) q = q.Where(predicate);
-            if (include != null) q = include(q);
-            if (orderBy != null) q = orderBy(q);
-            if (asNoTracking) q = q.AsNoTracking();
+            
+            if (predicate != null)
+                q = q.Where(predicate);
 
-            return await q.ToListAsync(ct);
+            if (include != null)
+                q = include(q);
+
+            if (orderBy != null)
+                q = orderBy(q);
+
+            if (asNoTracking)
+                q = q.AsNoTracking();
+
+            if (selector != null)
+                return await q.Select(selector).ToListAsync(ct);
+
+            // fallback if no projection given
+            return (IReadOnlyList<TResult>)await q.Cast<TResult>().ToListAsync(ct);
         }
+
 
         public virtual async Task<(IReadOnlyList<T> Items, int TotalCount)> GetPagedAsync(
             int page, int pageSize,

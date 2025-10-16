@@ -1,15 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "خانه";
+   ViewData["Title"] = "خانه";
 }
+
 <section class="bg-green-dark-hero screen-with-header hero-center">
     <div class="d-flex flex-column align-items-center gap-3 px-3">
         <h1>شما سزاوار شادی هستید.</h1>
         <div class="pre-consultation">
             <span>دنبال چه نوع درمانی هستید؟</span>
-            <a asp-action="" asp-controller="">
+
+            <button data-bs-toggle="modal" data-bs-target="#preConsultationModal">
                 <span>رزرو پیش مشاوره رایگان</span>
                 <i class="fa-solid fa-arrow-left"></i>
-            </a>
+            </button>
         </div>
         @* Desktop *@
         <ul class="d-flex d-md-flex flex-column flex-lg-row justify-content-between align-items-center gap-3 home-items-group p-0">
@@ -53,6 +55,9 @@
     </div>
     <img class="w-100 divider-main-1" src="~/img/home/divider-main-1.svg" aria-hidden="true" loading="lazy" />
 </section>
+
+@await Html.PartialAsync("_PreConsultationModal")
+
 
 <div id="scrollToStats" class="down-arrow">
     <img src="~/img/home/chevron-down.svg" alt="Scroll down" />
@@ -440,8 +445,10 @@
 
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />
+    <link href="~/css/preconsult.css" rel="stylesheet" />
 }
 
 @section Scripts {
     <script src="~/js/home.js"></script>
+    <script src="~/js/preconsult.js"></script>
 }
