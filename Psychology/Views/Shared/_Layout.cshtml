@@ -82,5 +82,28 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/scroll-animate.js" defer></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Toast container (bottom right corner) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div id="mainToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+            <div class="d-flex">
+                <div class="toast-body" id="mainToastBody">
+                    <!-- message will go here -->
+                </div>
+                <button type="button" class="btn-close btn-close-white p-2 me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom-left for RTL. Change left/right if you prefer -->
+    <a class="wa-fab"
+       href="https://wa.me/989123891944?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%82%D8%B5%D8%AF%20%D8%B1%D8%B2%D9%88%DB%8C%20%D9%BE%DB%8C%D8%B4%E2%80%8C%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D8%AF%D8%A7%D8%B1%D9%85."
+       target="_blank" rel="noopener" aria-label="واتس‌اپ کلینیک سنس">
+        <img src="~/img/global/whatsapp.png"
+             alt=""
+             aria-hidden="true"
+             loading="lazy"
+             width="53" />
+    </a>
 </body>
 </html>

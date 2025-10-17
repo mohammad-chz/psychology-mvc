@@ -1,0 +1,11 @@
+﻿@model Psychology.Application.Emails.PreConsultation.PreConsultationEmailModel
+<div style="font-family: Vazirmatn, sans-serif; direction: rtl; text-align: right;">
+    <h3 style="color:#4A628A;">🔔 درخواست جدید پیش‌مشاوره</h3>
+    <ul>
+        <li>ایمیل: <strong>@Model.Email</strong></li>
+        <li>تلفن: <strong>@Model.CountryPrefix @Model.PhoneNumber</strong></li>
+        <li>زمان ثبت: <strong>@Model.Date - @Model.Time</strong></li>
+    </ul>
+    <hr />
+    <small style="color:#6c757d">از وب‌سایت رسمی کلینیک سنس</small>
+</div>

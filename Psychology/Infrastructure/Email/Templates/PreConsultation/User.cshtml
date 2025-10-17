@@ -1,0 +1,16 @@
+﻿@model Psychology.Application.Emails.PreConsultation.PreConsultationEmailModel
+
+<div style="font-family: Vazirmatn, sans-serif; direction: rtl; text-align: right;">
+    <h2 style="color:#4A628A;">سلام 👋</h2>
+    <p>از ثبت درخواست پیش‌مشاوره در <strong>کلینیک سنس</strong> سپاسگزاریم 🌿</p>
+    <p>کارشناسان ما به‌زودی برای هماهنگی زمان با شما تماس می‌گیرند.</p>
+
+    <p style="margin-top:12px">
+        📞 <strong>@Model.CountryPrefix @Model.PhoneNumber</strong><br />
+        ✉️ <strong>@Model.Email</strong><br />
+        ⏰ <span>@Model.Date - @Model.Time</span>
+    </p>
+
+    <hr style="margin:16px 0" />
+    <small style="color:#6c757d">این پیام به‌صورت خودکار ارسال شده است؛ لطفاً به آن پاسخ ندهید.</small>
+</div>

@@ -26,6 +26,11 @@ namespace Psychology.Application.Interfaces
             bool asNoTracking = true,
             CancellationToken ct = default);
 
+        // --- New method ---
+        Task<bool> AnyAsync(
+            Expression<Func<T, bool>>? predicate = null,
+            CancellationToken ct = default);
+
         Task AddAsync(T entity, CancellationToken ct = default);
         Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default);
         void Update(T entity);

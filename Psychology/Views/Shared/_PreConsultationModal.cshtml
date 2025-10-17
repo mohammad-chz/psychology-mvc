@@ -28,7 +28,7 @@
 
                                 <input asp-for="PhoneNumber"
                                        class="form-control phone-input"
-                                       placeholder="مثلاً 9121234567 (بدون صفر)"
+                                       placeholder="مثلاً 9121234567"
                                        inputmode="numeric"
                                        autocomplete="tel" />
                             </div>
@@ -42,7 +42,7 @@
                         <div class="col-12 mb-3">
                             <label asp-for="Email" class="form-label fw-semibold"></label>
                             <input asp-for="Email"
-                                   class="form-control email-input"
+                                   class="form-control"
                                    placeholder="YourEmail@gmail.com"
                                    autocomplete="email" />
                             <span asp-validation-for="Email" class="text-danger d-block mt-1"></span>

@@ -14,8 +14,8 @@ namespace Psychology.Domain.Entities
         [Required, MaxLength(20)]
         public string PhoneNumber { get; set; } = default!;
 
-        [Required, MaxLength(50)]
-        public string TherapyType { get; set; } = default!; // e.g., "فردی", "زوجی", "خانوادگی"
+        [MaxLength(50)]
+        public string? TherapyType { get; set; }
 
         [MaxLength(1000)]
         public string? Description { get; set; }

@@ -368,6 +368,22 @@ main {
             transition-delay: 180ms;
         }
 
+/* WhatsApp Chat */
+.wa-fab {
+    position: fixed;
+    left: 1rem; /* use left:16px for RTL if you prefer */
+    bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 1055; 
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    .wa-fab:hover {
+        transform: translateY(-2px);
+    }
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .reveal,

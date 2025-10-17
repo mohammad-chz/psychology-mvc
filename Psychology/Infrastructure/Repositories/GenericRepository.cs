@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1;
 using Psychology.Application.Interfaces;
 using Psychology.Infrastructure.Persistence;
 using System.Linq;
@@ -91,6 +92,16 @@ namespace Psychology.Infrastructure.Repositories
                                .ToListAsync(ct);
 
             return (items, total);
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>>? predicate = null, CancellationToken ct = default)
+        {
+            IQueryable<T> query = _db;
+
+            if (predicate != null)
+                return await query.AnyAsync(predicate, ct);
+
+            return await query.AnyAsync(ct);
         }
 
         public virtual async Task AddAsync(T entity, CancellationToken ct = default)

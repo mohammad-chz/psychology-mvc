@@ -5,8 +5,9 @@
     const PrefixWithPhone = document.getElementById('comparePrefixWithPhone');
     const msgPref = document.querySelector('[data-valmsg-for="PhonePrefixId"]');
     const msgPhone = document.querySelector('[data-valmsg-for="PhoneNumber"]');
-    const email = document.querySelector('[data-valmsg-for="Email"]');
+    const msgEmail = document.querySelector('[data-valmsg-for="Email"]');
     const closeBtn = document.querySelector('#preConsultationModal .btn-close');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     let prefixData;
     const loadPrefix = async () => {
@@ -15,7 +16,9 @@
             if (!res.ok) throw new Error('Server error: ' + res.status);
             prefixData = await res.json();
 
-            fillPrefixOption(prefixData.prefixMetaById);
+            if (prefix && prefix.options.length === 1) {
+                fillPrefixOption(prefixData.prefixMetaById);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -78,9 +81,8 @@
             phone.removeAttribute('maxlength');
             phone.placeholder = 'مثلاً 9121234567 (بدون صفر)';
         }
-        // do NOT validate here
-        clearError(msgPref);
-        clearError(msgPhone);
+
+        clearAllClientErrors();
     });
 
     function toFarsiDigits(str) {
@@ -99,13 +101,19 @@
         phone.classList.remove('is-invalid');
     }
 
+    function clearAllClientErrors() {
+        clearError(msgPref);
+        clearError(msgPhone);
+        clearError(PrefixWithPhone);
+        clearError(msgEmail);
+    }
+
     // validate ONLY when submitting
     function validateOnSubmit() {
         const meta = currentMeta();
         let ok = true;
 
-        clearError(msgPref);
-        clearError(msgPhone);
+        clearAllClientErrors();
 
         // prefix required
         if (!prefix.value) {
@@ -130,13 +138,80 @@
         return ok;
     }
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();           // stop jQuery/unobtrusive
-        if (validateOnSubmit()) {
-            // native submit (bypasses jQuery handlers)
-            HTMLFormElement.prototype.submit.call(form);
+
+        if (!validateOnSubmit()) return;
+
+        const fd = new FormData(form);
+
+        // Optional: disable button during request
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.dataset.prevText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'در حال ارسال...';
         }
 
+        try {
+            // Send as form-url-encoded (so MVC binds like a normal form post)
+            const body = new URLSearchParams();
+            for (const [k, v] of fd.entries()) body.append(k, v.toString());
+
+            const res = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                },
+                body
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                // server error (non-200)
+                setError(PrefixWithPhone, 'خطای سرور. لطفاً دوباره تلاش کنید.');
+                return;
+            }
+
+            if (data.ok) {
+                // success UI
+                // You can use your toast lib; for now simple alert:
+                // toast.success(data.message)
+                showToast(data.message, 'success');
+
+                // reset + close modal
+                form.reset();
+                clearAllClientErrors();
+                // reset select2
+                $(prefix).val(null).trigger('change');
+                // close
+                const modal = bootstrap.Modal.getInstance(document.getElementById('preConsultationModal'));
+                modal?.hide();
+            } else if (data.errors) {
+                // map backend ModelState errors to UI spans
+                // keys are property names: "PhonePrefixId", "PhoneNumber", "Email"
+                if (data.errors.PhonePrefixId?.length) setError(msgPref, data.errors.PhonePrefixId[0]);
+                if (data.errors.PhoneNumber?.length) setError(msgPhone, data.errors.PhoneNumber[0]);
+                if (data.errors.Email?.length) setError(msgEmail, data.errors.Email[0]);
+
+                // generic place for summary if needed:
+                if (!data.errors.PhonePrefixId && !data.errors.PhoneNumber && !data.errors.Email) {
+                    setError(PrefixWithPhone, 'ورودی‌ها نامعتبر است.');
+                }
+            } else {
+                setError(PrefixWithPhone, 'پاسخ نامعتبر از سرور.');
+            }
+        } catch (err) {
+            console.error(err);
+            showToast(data.message, 'danger', true);
+            setError(PrefixWithPhone, 'خطا در ارتباط با سرور.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = submitBtn.dataset.prevText || 'ارسال';
+            }
+        }
     });
 
     if (closeBtn) {
@@ -145,9 +220,8 @@
                 form.reset();
             }
 
-            clearError(comparePrefixWithPhone);
-            clearError(email);
-            
+            clearAllClientErrors();
+
             prefix.value = '';
             // notify Select2 to refresh its UI
             const event = new Event('change', { bubbles: true });

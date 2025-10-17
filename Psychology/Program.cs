@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Psychology.Application.Common.Interfaces;
 using Psychology.Application.Interfaces;
 using Psychology.Domain.Entities;
+using Psychology.Infrastructure.Email;
 using Psychology.Infrastructure.Persistence;
 using Psychology.Infrastructure.Repositories;
 using Psychology.Middlewares;
@@ -40,6 +42,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IPreConsultationRepository, PreConsultationRepository>();
 builder.Services.AddScoped<IPhonePrefixesRepository, PhonePrefixesRepository>();
+
+builder.Services.Configure<EmailOptions>(builder.Configuration.GetSection("Email"));
+builder.Services.AddScoped<ITemplateRenderer, TemplateRenderer>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddControllersWithViews();
 

@@ -128,3 +128,23 @@
         });
     });
 });
+
+function showToast(message, type = 'success', autohide = false) {
+    const toastEl = document.getElementById('mainToast');
+    const toastBody = document.getElementById('mainToastBody');
+
+    if (!toastEl || !toastBody) return;
+
+    // Reset classes and color
+    toastEl.classList.remove('bg-success', 'bg-danger', 'bg-warning', 'bg-info');
+    toastEl.classList.add(`bg-${type}`);
+
+    toastBody.textContent = message;
+
+    // Bootstrap toast instance
+    const bsToast = bootstrap.Toast.getOrCreateInstance(toastEl, {
+        autohide: autohide
+    });
+
+    bsToast.show();
+}

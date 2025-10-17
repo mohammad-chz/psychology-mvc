@@ -11,7 +11,7 @@ namespace Psychology.ViewModels
 
         [Required(ErrorMessage = "انتخاب پیش‌شماره الزامی است.")]
         [Display(Name = "پیش‌شماره کشور")]
-        public int? PhonePrefixId { get; set; }
+        public int PhonePrefixId { get; set; }
 
         [Required(ErrorMessage = "وارد کردن شماره تماس الزامی است.")]
         [RegularExpression(@"^\d+$", ErrorMessage = "شماره تماس باید فقط شامل اعداد باشد.")]
